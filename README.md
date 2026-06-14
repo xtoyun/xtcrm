@@ -18,22 +18,65 @@
 
 前端和后端部署在同一域名下，`index.php` 走 PHP，其余 `/crm/` 下的静态资源走 Nginx。
 
+## 开发环境
+
+### Node.js
+
+本项目需要 Node.js，**推荐使用 nvm（Node Version Manager）** 管理版本，避免多项目之间的版本冲突。
+
+当前 Node 版本：**v22.16.0**
+
+#### Windows 安装 nvm
+
+下载 [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) 安装包（`nvm-setup.exe`），安装后打开新的终端：
+
+```powershell
+# 安装并使用 Node 22
+nvm install 22
+nvm use 22
+
+# 验证
+node -v   # v22.16.0
+npm -v    # 10.x
+```
+
+#### macOS / Linux 安装 nvm
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# 重启终端或 source ~/.bashrc
+
+nvm install 22
+nvm use 22
+```
+
+#### 项目自带版本锁
+
+进入 `mpp/crm/frontend-v2/` 后，`.nvmrc` 文件会自动提示 nvm 切换版本：
+
+```bash
+nvm use        # 自动读取 .nvmrc，切换到 v22.16.0
+```
+
 ## 快速开始
 
 ```bash
 # 1. 克隆
-git clone <repo>
+git clone https://github.com/xtoyun/xtcrm.git
 cd xtcrm/mpp/crm/frontend-v2
 
-# 2. 安装
+# 2. 切换到正确的 Node 版本
+nvm use
+
+# 3. 安装
 npm install
 
-# 3. 开发模式（Vite dev server，端口 9999）
+# 4. 开发模式（Vite dev server，端口 9999）
 npm run dev
 # → http://localhost:9999
 # Vite 自动代理 /index.php 到后端（见 vite.config.js 的 server.proxy）
 
-# 4. 构建
+# 5. 构建
 npm run build
 # → 输出到 public/crm/
 
@@ -175,7 +218,6 @@ if (!$this->checkAction('/crm/customer/delete', '删除客户')) return;
 | 项目 | Vue 版本 | UI | 构建 |
 |------|---------|----|------|
 | frontend-v2（当前） | Vue 3.5 | Ant Design Vue 4 | Vite 8 |
-| frontend（旧版，维护） | Vue 2 | Ant Design Vue 1 | Webpack |
 
 ## AI 架构（五层）
 
