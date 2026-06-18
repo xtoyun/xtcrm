@@ -1,0 +1,15 @@
+XTCRM
+Copyright 2025 xtoyun
+
+This product includes software developed by the XTCRM project
+(https://github.com/xtoyun/xtcrm).
+
+This product includes software developed by third parties, distributed
+under their respective licenses. See the vendor/ directory and
+composer.lock for a complete list of dependencies and their licenses.
+
+This software is the original work of its authors. All contributions
+are made under the Apache License, Version 2.0, and contributors
+retain their copyright while granting the project a perpetual,
+worldwide, non-exclusive license to distribute their contributions
+as part of this work.
